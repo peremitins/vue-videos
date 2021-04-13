@@ -167,7 +167,7 @@ export default {
             background-color: #496583;
             padding: 16px 8px;
             flex: 1 1 100%;
-            border-radius: 0 0 8px 8px;
+            border-radius: 0 0 6px 6px;
             .year {
               color: #aaa;
               font-size: 14px;
