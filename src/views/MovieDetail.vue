@@ -24,6 +24,8 @@ export default {
       .then(response => response.json())
       .then(data => {
         movie.value = data;
+        console.log(movie.value);
+        
       })
     })
     
@@ -43,16 +45,20 @@ export default {
       font-size: 28px;
       font-weight: 600;
       margin-bottom: 16px;
+      text-align: center;
     }
     .featured-img {
       display: block;
       max-width: 200px;
-      margin-bottom: 16px;
+      margin: 0 auto 16px;
     }
     p {
       color: #fff;
       font-size: 18px;
       line-height: 1.4;
+      &:first-of-type {
+        text-align: center;
+      }
     }
   }
 </style>

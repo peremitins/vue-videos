@@ -1,4 +1,5 @@
 # vue-movie-db
+https://allfreelance.github.io/vue-videos/
 
 ## Project setup
 ```

@@ -10,10 +10,10 @@
       </router-link>
     </div>
     <form @submit.prevent="SearchMovies()" class="search-box">
-      <input type="text" placeholder="What are you looking for" v-model="search">
+      <input type="text" placeholder="Enter title in English" v-model="search">
       <input type="submit" value="Search">
     </form>
-    <div class="movies-list">
+    <div v-if="movies.length" class="movies-list">
       <div class="movie" v-for="movie in movies" :key="movie.imdbID">
         <router-link :to="'/movie/' + movie.imdbID" class="movie-link">
         <div class="product-image">
@@ -27,6 +27,7 @@
         </router-link>
       </div>
     </div>
+    <div v-else class="results">No results were found for your search</div>
 	</div>
 </template>
 
@@ -44,8 +45,14 @@ export default {
         fetch(`https://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
         .then(response => response.json())
         .then(data => {
-          movies.value = data.Search;
+          if (data.Search) {
+            
+            movies.value = data.Search;
+          } else {
+            movies.value = [];
+          }
           search.value = '';
+          console.log(movies.value);
         })
       }
     }
@@ -182,4 +189,19 @@ export default {
       }
     }
   }
+  .results {
+    text-align: center;
+  }
+  input:focus::placeholder {
+    opacity: 0;
+  }
+  input[type='submit'] {
+    cursor: pointer;
+  }
+  @media (max-width: 576px) {
+      .home .movies-list .movie {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+    }
 </style>
