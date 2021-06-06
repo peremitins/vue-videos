@@ -32,12 +32,12 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import env from '../env'
 
 export default {
   setup () {
-    const search = ref('');
+    const search = ref('movie');
     const movies = ref([]);
     
     const SearchMovies = () => {
@@ -56,6 +56,10 @@ export default {
         })
       }
     }
+    
+    onMounted(() => {
+       SearchMovies()
+     })
     
     return {
       search,
