@@ -145,7 +145,7 @@ export default {
       margin: 0 8px;
       .movie {
         max-width: 50%;
-        flex: 1 1 50%;
+        flex: 1 1 20%;
         padding: 16px 8px;
         .movie-link {
           display: flex;
